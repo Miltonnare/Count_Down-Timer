@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CountDownTimer</title>
+    <link rel="stylesheet" href="count.css">
+</head>
+<body>
+ <h1 id="down">Count Down Timer</h1>  
+ <p class="downer">Offer! Offer! Offer! </p> 
+ <div class="broke">
+ <div class="timeBox">
+    <span id="days"></span>
+    <div>DAYS</div>
+ </div>
+ <div class="timeBox">
+     <span id="hours"></span>
+     <div>HOURS</div>
+ </div>
+ <div class="timeBox">
+    <span id="mins"></span>
+    <div>MINUTES</div>
+ </div>
+ <div class="timeBox">
+
+    <span id="seconds"></span>
+    <div>SECONDS</div>
+ </div>
+ 
+</div>
+<p class="downer">Come One!Come All!</p>
+<script>
+    const dateNew1=new Date("December 28,2024,00:00:28").getTime();
+    
+    const timer=setInterval(function timer () {
+        const currentDate=new Date().getTime();
+      const timeDiff= Math.floor(dateNew1-currentDate); 
+      const daysValue=Math.floor(timeDiff/(1000*60*60*24));
+      const hoursValue=Math.floor((timeDiff%(1000*60*60*24))/(1000*60*60));
+      const minsValue=Math.floor((timeDiff%(1000*60*60))/(1000*60)); 
+      const secondsValue=Math.floor(timeDiff% (1000*60)/(1000))
+      document.getElementById("days").innerHTML=daysValue;
+      document.getElementById("hours").innerHTML=hoursValue;
+      document.getElementById("mins").innerHTML=minsValue;
+      document.getElementById("seconds").innerHTML=secondsValue;
+
+     
+
+      if (timeDiff <= 0) {
+                clearInterval(timer);
+    }},1000);
+</script>
+</body>
+</html>
